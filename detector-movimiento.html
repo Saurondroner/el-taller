@@ -1,96 +1,266 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Cámara de seguridad inteligente | El Taller</title>
+
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: Arial, sans-serif; background: #111; color: #fff; line-height: 1.65; }
-    header { background: #1c1c1c; padding: 28px 20px; text-align: center; border-bottom: 2px solid #333; }
-    header h1 { font-size: clamp(28px, 5vw, 40px); margin-bottom: 8px; }
-    header p { color: #bbb; }
-    main { max-width: 950px; margin: auto; padding: 35px 20px 55px; }
-    h2 { font-size: 25px; margin: 30px 0 12px; }
-    p, li { color: #ccc; }
-    ul, ol { padding-left: 24px; margin: 12px 0; }
-    li { margin: 7px 0; }
-    .intro, .panel { background: #1c1c1c; border: 1px solid #333; border-radius: 12px; padding: 22px; margin: 20px 0; }
-    .tag { display: inline-block; background: #303030; border-radius: 20px; padding: 5px 11px; margin: 5px 5px 0 0; color: #ddd; font-size: 14px; }
-    a { color: #8fc7ff; }
-    .buttons a { display: inline-block; background: #333; color: white; text-decoration: none; padding: 11px 15px; border-radius: 7px; margin: 12px 8px 0 0; }
-    .buttons a:hover { background: #555; }
-    pre { white-space: pre-wrap; overflow-wrap: anywhere; background: #080808; border: 1px solid #333; border-radius: 10px; padding: 18px; color: #d8e6d8; overflow-x: auto; font-size: 13px; }
-    code { font-family: Consolas, monospace; }
-    .note { border-left: 4px solid #d44; padding: 10px 14px; background: #211818; color: #ddd; margin: 15px 0; }
-    footer { text-align: center; padding: 28px; background: #1c1c1c; color: #888; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+      line-height: 1.65;
+    }
+
+    header {
+      background: #1c1c1c;
+      padding: 30px 20px;
+      text-align: center;
+      border-bottom: 2px solid #333;
+    }
+
+    header h1 {
+      font-size: clamp(28px, 5vw, 40px);
+      margin-bottom: 8px;
+    }
+
+    header p {
+      color: #bbb;
+    }
+
+    main {
+      max-width: 950px;
+      margin: auto;
+      padding: 35px 20px 55px;
+    }
+
+    h2 {
+      font-size: 25px;
+      margin: 35px 0 15px;
+    }
+
+    p, li {
+      color: #ccc;
+    }
+
+    ul, ol {
+      padding-left: 24px;
+      margin: 12px 0;
+    }
+
+    li {
+      margin: 7px 0;
+    }
+
+    a {
+      color: #8fc7ff;
+    }
+
+    .intro, .panel {
+      background: #1c1c1c;
+      border: 1px solid #333;
+      border-radius: 12px;
+      padding: 22px;
+      margin: 20px 0;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #303030;
+      border-radius: 20px;
+      padding: 5px 11px;
+      margin: 8px 5px 0 0;
+      color: #ddd;
+      font-size: 14px;
+    }
+
+    .buttons a {
+      display: inline-block;
+      background: #333;
+      color: white;
+      text-decoration: none;
+      padding: 11px 15px;
+      border-radius: 7px;
+      margin: 12px 8px 0 0;
+    }
+
+    .buttons a:hover {
+      background: #555;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      background: #080808;
+      border: 1px solid #333;
+      border-radius: 10px;
+      padding: 18px;
+      color: #d8e6d8;
+      overflow-x: auto;
+      font-size: 13px;
+      margin: 12px 0;
+    }
+
+    code {
+      font-family: Consolas, monospace;
+    }
+
+    .note {
+      border-left: 4px solid #d44;
+      padding: 12px 15px;
+      background: #211818;
+      color: #ddd;
+      margin: 20px 0;
+    }
+
+    .video-contenedor {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border-radius: 14px;
+      border: 1px solid #444;
+      background: #000;
+    }
+
+    .video-contenedor iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 28px;
+      background: #1c1c1c;
+      color: #888;
+    }
   </style>
 </head>
+
 <body>
+
   <header>
     <h1>📹 Cámara de seguridad inteligente</h1>
     <p>Un detector de movimiento hecho con un ordenador, Python y OpenCV</p>
   </header>
 
   <main>
+
     <p><a href="index.html">← Volver a El Taller</a></p>
 
     <section class="intro">
+
       <p>
-        En este proyecto convertimos el ordenador en un sencillo sistema de vigilancia.
-        La cámara muestra la habitación, OpenCV analiza la imagen y, cuando detecta
-        movimiento, dibuja un recuadro sobre la zona y activa un aviso sonoro.
+        En este proyecto convertimos el ordenador en un sencillo sistema
+        de vigilancia. La cámara muestra la habitación, OpenCV analiza
+        la imagen y, cuando detecta movimiento, dibuja un recuadro
+        sobre la zona y activa un aviso sonoro.
       </p>
+
       <div>
         <span class="tag">Python</span>
         <span class="tag">OpenCV</span>
         <span class="tag">Windows</span>
         <span class="tag">Sin Arduino</span>
       </div>
+
       <div class="buttons">
         <a href="detector.py" download>⬇ Descargar detector.py</a>
       </div>
+
     </section>
 
+    <h2>🎬 Vídeo del proyecto</h2>
+
+    <p>
+      ¡Mira cómo funciona mi propia cámara de seguridad inteligente!
+      En este vídeo te enseño el proyecto en funcionamiento.
+    </p>
+
+    <div class="video-contenedor">
+      <iframe
+        src="https://www.youtube.com/embed/Ss2FPowqtVg"
+        title="He creado mi propia cámara de seguridad inteligente"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
+    </div>
+
     <h2>🧰 Qué necesitas</h2>
+
     <ul>
       <li>Un ordenador con Windows.</li>
-      <li>Una webcam USB o una cámara compatible con el modo Webcam, como la DJI Osmo Action 4.</li>
+      <li>Una webcam USB o una cámara compatible con modo Webcam, como la DJI Osmo Action 4.</li>
       <li>Un cable USB de datos.</li>
       <li>Python 3 instalado.</li>
       <li>Conexión a Internet para instalar OpenCV.</li>
     </ul>
-    <p>No hacen falta Arduino, sensores de movimiento ni componentes electrónicos adicionales.</p>
+
+    <p>
+      No hacen falta Arduino, sensores de movimiento ni componentes
+      electrónicos adicionales.
+    </p>
 
     <h2>⚙️ 1. Conecta la cámara</h2>
+
     <ol>
       <li>Conecta la cámara al ordenador mediante USB.</li>
-      <li>En la cámara, selecciona el modo Webcam si está disponible.</li>
-      <li>Comprueba que Windows la reconoce abriendo la aplicación Cámara.</li>
-      <li>Cierra la aplicación Cámara antes de iniciar el detector, para que Python pueda usar el dispositivo.</li>
+      <li>Selecciona el modo Webcam si está disponible.</li>
+      <li>Comprueba que Windows reconoce la cámara.</li>
+      <li>Cierra otras aplicaciones que estén utilizando la cámara.</li>
     </ol>
 
     <h2>🐍 2. Instala Python y OpenCV</h2>
+
     <p>Abre el CMD de Windows y comprueba que Python está instalado:</p>
+
     <pre><code>py --version</code></pre>
+
     <p>Después instala OpenCV:</p>
+
     <pre><code>py -m pip install opencv-python</code></pre>
 
     <h2>📁 3. Prepara la carpeta</h2>
+
     <ol>
       <li>Crea una carpeta llamada <code>DetectorMovimiento</code> en el Escritorio.</li>
-      <li>Descarga el archivo <code>detector.py</code> desde el botón de esta página.</li>
-      <li>Guarda el archivo dentro de esa carpeta.</li>
+      <li>Descarga el archivo <code>detector.py</code> desde esta página.</li>
+      <li>Guárdalo dentro de esa carpeta.</li>
     </ol>
 
     <h2>▶️ 4. Ejecuta el detector</h2>
-    <p>Abre CMD y escribe estos comandos, uno después del otro:</p>
-    <pre><code>cd "%USERPROFILE%\\Desktop\\DetectorMovimiento"
+
+    <p>Abre CMD y escribe estos comandos:</p>
+
+    <pre><code>cd "%USERPROFILE%\Desktop\DetectorMovimiento"
 py detector.py</code></pre>
-    <p>Si tu Escritorio está sincronizado con OneDrive, la carpeta podría estar en <code>%USERPROFILE%\\OneDrive\\Desktop\\DetectorMovimiento</code>.</p>
-    <p>Se abrirá una ventana con la imagen de la cámara. Pulsa la tecla <strong>Q</strong> para cerrar el programa.</p>
+
+    <p>
+      Si tu Escritorio está sincronizado con OneDrive, la carpeta podría
+      estar en <code>%USERPROFILE%\OneDrive\Desktop\DetectorMovimiento</code>.
+    </p>
+
+    <p>
+      Se abrirá una ventana con la imagen de la cámara.
+      Pulsa la tecla <strong>Q</strong> para cerrar el programa.
+    </p>
 
     <h2>🧠 ¿Cómo funciona?</h2>
+
     <ul>
       <li>OpenCV captura continuamente imágenes de la cámara.</li>
       <li>El programa compara los cambios entre imágenes para localizar movimiento.</li>
@@ -99,23 +269,31 @@ py detector.py</code></pre>
     </ul>
 
     <div class="note">
-      <strong>Importante:</strong> es un proyecto educativo y experimental, no un sistema
-      de alarma profesional. Puede detectar cambios de luz o movimientos de objetos y
-      no sustituye a un sistema de seguridad certificado. Usa la cámara respetando la
-      privacidad de las personas.
+      <strong>Importante:</strong> es un proyecto educativo y experimental,
+      no un sistema de alarma profesional. Puede detectar cambios de luz
+      o movimientos de objetos y no sustituye a un sistema de seguridad
+      certificado. Usa la cámara respetando la privacidad de las personas.
     </div>
 
-    <h2>💻 Código completo</h2>
-    <p>También puedes descargar el archivo directamente:</p>
+    <h2>💻 Código del proyecto</h2>
+
+    <p>
+      Puedes descargar el código Python y probar el detector
+      en tu propio ordenador.
+    </p>
+
     <div class="buttons">
-      <a href="detector.py" download>⬇ Descargar detector.py</a>
+      <a href="detector.py" download>⬇ Descargar código Python</a>
+      <a href="https://github.com/Saurondroner/el-taller" target="_blank">
+        📁 Ver en GitHub
+      </a>
     </div>
-    <p style="margin-top:15px">El código fuente está disponible en el archivo <code>detector.py</code> incluido en este proyecto.</p>
 
-    <h2>🎥 Vídeo del proyecto</h2>
-    <p>Cuando publiques el vídeo en YouTube, añade aquí su enlace para que quede integrado en la ficha del proyecto.</p>
   </main>
 
-  <footer>🛠️ El Taller · Saurondroner</footer>
+  <footer>
+    🛠️ El Taller · EPIK4L
+  </footer>
+
 </body>
 </html>
