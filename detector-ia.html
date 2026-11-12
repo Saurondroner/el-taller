@@ -1,0 +1,228 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Detector de objetos con IA | El Taller</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #111;
+  color: white;
+  line-height: 1.6;
+}
+
+header {
+  background: #1c1c1c;
+  text-align: center;
+  padding: 35px 20px;
+  border-bottom: 2px solid #333;
+}
+
+header h1 {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+header p {
+  color: #bbb;
+}
+
+main {
+  max-width: 950px;
+  margin: auto;
+  padding: 30px 20px 50px;
+}
+
+a {
+  color: #8fc7ff;
+}
+
+h2 {
+  margin: 30px 0 12px;
+}
+
+p, li {
+  color: #ccc;
+}
+
+ul, ol {
+  padding-left: 25px;
+  margin: 12px 0;
+}
+
+li {
+  margin: 7px 0;
+}
+
+.panel {
+  background: #1c1c1c;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 22px;
+  margin: 22px 0;
+}
+
+.tag {
+  display: inline-block;
+  background: #333;
+  padding: 5px 12px;
+  border-radius: 20px;
+  margin: 8px 5px 0 0;
+  font-size: 13px;
+}
+
+.buttons a {
+  display: inline-block;
+  background: #333;
+  color: white;
+  text-decoration: none;
+  padding: 12px 17px;
+  border-radius: 8px;
+  margin: 12px 8px 0 0;
+}
+
+.buttons a:hover {
+  background: #555;
+}
+
+pre {
+  background: #080808;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 15px;
+  overflow-x: auto;
+  margin: 12px 0;
+  color: #b9e8c1;
+}
+
+footer {
+  background: #1c1c1c;
+  color: #888;
+  text-align: center;
+  padding: 25px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>👁️ Detector de objetos con Inteligencia Artificial</h1>
+  <p>Enseñando a mi ordenador a ver el mundo</p>
+</header>
+
+<main>
+
+<p><a href="index.html">← Volver a El Taller</a></p>
+
+<section class="panel">
+  <h2>🤖 ¿En qué consiste este proyecto?</h2>
+
+  <p>
+    He creado mi propio detector de objetos utilizando inteligencia
+    artificial. Mi ordenador es capaz de analizar imágenes de una
+    cámara en tiempo real y reconocer personas, animales y diferentes
+    objetos automáticamente.
+  </p>
+
+  <span class="tag">Inteligencia artificial</span>
+  <span class="tag">Python</span>
+  <span class="tag">YOLO11</span>
+  <span class="tag">OpenCV</span>
+  <span class="tag">Visión artificial</span>
+</section>
+
+<h2>🧠 ¿Qué puede reconocer?</h2>
+
+<ul>
+  <li>Personas.</li>
+  <li>Perros y gatos.</li>
+  <li>Móviles.</li>
+  <li>Botellas y vasos.</li>
+  <li>Sillas y mesas.</li>
+  <li>Mochilas y muchos otros objetos.</li>
+</ul>
+
+<h2>⚙️ Tecnología utilizada</h2>
+
+<div class="panel">
+  <ul>
+    <li><strong>Python:</strong> lenguaje utilizado para programar el detector.</li>
+    <li><strong>YOLO11:</strong> modelo de inteligencia artificial que reconoce objetos.</li>
+    <li><strong>OpenCV:</strong> captura y procesamiento de imágenes.</li>
+    <li><strong>Cámara:</strong> permite analizar el entorno en directo.</li>
+  </ul>
+</div>
+
+<h2>💻 ¿Cómo funciona?</h2>
+
+<ol>
+  <li>Conectamos una cámara al ordenador.</li>
+  <li>Ejecutamos el programa Python.</li>
+  <li>La inteligencia artificial analiza las imágenes.</li>
+  <li>Reconoce los objetos y dibuja recuadros de colores.</li>
+  <li>Muestra el nombre de cada objeto detectado.</li>
+</ol>
+
+<h2>📥 Descargar el proyecto</h2>
+
+<div class="panel">
+  <p>
+    Puedes descargar el código Python y probar tu propio detector
+    de objetos en Windows.
+  </p>
+
+  <div class="buttons">
+    <a href="detector_ia.py" download>
+      ⬇ Descargar detector de IA
+    </a>
+
+    <a href="https://github.com/Saurondroner/el-taller">
+      📁 Ver código en GitHub
+    </a>
+  </div>
+</div>
+
+<h2>🛠️ Requisitos</h2>
+
+<ul>
+  <li>Windows 10 o Windows 11.</li>
+  <li>Python instalado.</li>
+  <li>Una cámara web.</li>
+  <li>Conexión a Internet para descargar el modelo la primera vez.</li>
+</ul>
+
+<pre>python -m pip install ultralytics opencv-python</pre>
+
+<pre>python detector_ia.py</pre>
+
+<p>
+  El detector utiliza un modelo preentrenado y reconoce las
+  categorías incluidas en dicho modelo. No identifica cualquier
+  objeto imaginable.
+</p>
+
+<h2>🚀 Proyecto realizado por</h2>
+
+<div class="panel">
+  <h3>EPIK4L</h3>
+  <p>Experimentando con tecnología, programación e inteligencia artificial.</p>
+</div>
+
+</main>
+
+<footer>
+  🛠️ El Taller · EPIK4L
+</footer>
+
+</body>
+</html>
