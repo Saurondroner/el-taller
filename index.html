@@ -1,9 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>El Taller | Saurondroner</title>
+
+  <title>El Taller | EPIK4L</title>
 
   <style>
     * {
@@ -57,6 +59,12 @@
       border: 1px solid #333;
       border-radius: 12px;
       padding: 25px;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .project:hover {
+      transform: translateY(-4px);
+      border-color: #777;
     }
 
     .project h3 {
@@ -92,6 +100,16 @@
       background: #1c1c1c;
       color: #888;
     }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 32px;
+      }
+
+      .container {
+        padding: 25px 15px;
+      }
+    }
   </style>
 </head>
 
@@ -101,17 +119,21 @@
     <h1>🛠️ EL TALLER</h1>
     <p>Proyectos, experimentos y cosas que voy aprendiendo</p>
   </header>
-<div style="max-width: 900px; margin: 30px auto; padding: 0 20px;">
-  <video controls autoplay muted loop playsinline style="width: 100%; border-radius: 15px;">
-    <source src="presentacion.mp4" type="video/mp4">
-  </video>
-</div>
+
+  <!-- VÍDEO DE PRESENTACIÓN -->
+  <div style="max-width: 900px; margin: 30px auto; padding: 0 20px;">
+    <video controls autoplay muted loop playsinline style="width: 100%; border-radius: 15px;">
+      <source src="presentacion.mp4" type="video/mp4">
+    </video>
+  </div>
+
   <main class="container">
 
     <h2>🚀 Mis proyectos</h2>
 
     <div class="projects">
 
+      <!-- PROYECTO 1: LÁMPARA RGB -->
       <div class="project">
         <h3>💡 Lámpara RGB con Arduino</h3>
 
@@ -135,6 +157,7 @@
         </div>
       </div>
 
+      <!-- PROYECTO 2: CÁMARA DE SEGURIDAD -->
       <div class="project">
         <h3>📹 Cámara de seguridad inteligente</h3>
 
@@ -149,13 +172,29 @@
         </div>
       </div>
 
+      <!-- PROYECTO 3: INTELIGENCIA ARTIFICIAL -->
+      <div class="project">
+        <h3>🤖 Detector de objetos con Inteligencia Artificial</h3>
+
+        <p>
+          He enseñado a mi ordenador a reconocer personas, animales y objetos
+          en tiempo real utilizando Python, YOLO11 y OpenCV.
+        </p>
+
+        <div class="buttons">
+          <a href="detector-ia.html">👁️ Ver proyecto</a>
+          <a href="detector_ia.py" download>💻 Descargar código</a>
+        </div>
+      </div>
+
     </div>
 
   </main>
 
   <footer>
-    🛠️ El Taller · Saurondroner
+    🛠️ El Taller · EPIK4L
   </footer>
 
 </body>
 </html>
+
